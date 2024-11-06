@@ -55,12 +55,20 @@ if __name__ == '__main__':
 	# python train.py --dataroot /.path_to_your_data --learn_residual --resize_or_crop crop --fineSize CROP_SIZE (we used 256)
 
 	opt = TrainOptions().parse()
-	opt.dataroot = 'D:\Photos\TrainingData\BlurredSharp\combined'
+	noise_level = 100
+
+	opt.name = f"celeba_t{noise_level}"
+	opt.dataroot = f'/home/anvuong/datasets/celeba_prepared/deblurgan/t{noise_level}'
 	opt.learn_residual = True
 	opt.resize_or_crop = "crop"
 	opt.fineSize = 256
 	opt.gan_type = "gan"
-	# opt.which_model_netG = "unet_256"
+	opt.which_model_netG = "resnet_9blocks"
+	opt.which_model_netD = "n_layers"
+	opt.n_layers_D = 3
+	opt.batchSize = 16
+	# opt.gpu_ids = '1'
+	# opt.gpu_ids = ['cuda:0','cuda:1']
 
 	# default = 5000
 	opt.save_latest_freq = 100

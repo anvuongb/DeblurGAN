@@ -399,8 +399,8 @@ class UnetSkipConnectionBlock(nn.Module):
         # 	model = down + [submodule] + up + [nn.Dropout(0.5)]
         # else:
         # 	model = down + [submodule] + up
-
-        self.model = nn.Sequential(*model)
+        print(model)
+        self.model = nn.Sequential(*model[0])
 
     def forward(self, x):
         if self.outermost:
