@@ -58,7 +58,10 @@ if __name__ == '__main__':
 	noise_level = 100
 
 	opt.name = f"celeba_t{noise_level}"
-	opt.dataroot = f'/home/anvuong/datasets/celeba_prepared/deblurgan/t{noise_level}'
+	opt.dataroot = f'/nfs/stak/users/vuonga2/datasets/celeba_prepared/deblurgan/t{noise_level}'
+	opt.which_epoch = "latest"
+	opt.epoch_count = 75
+	opt.continue_train = True
 	opt.learn_residual = True
 	opt.resize_or_crop = "crop"
 	opt.fineSize = 256
@@ -66,7 +69,7 @@ if __name__ == '__main__':
 	opt.which_model_netG = "resnet_9blocks"
 	opt.which_model_netD = "n_layers"
 	opt.n_layers_D = 3
-	opt.batchSize = 16
+	opt.batchSize = 32
 	# opt.gpu_ids = '1'
 	# opt.gpu_ids = ['cuda:0','cuda:1']
 
